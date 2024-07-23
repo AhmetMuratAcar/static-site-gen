@@ -15,5 +15,11 @@ class HTMLNode:
 
         return stringified
 
+    def __eq__(self, other):
+        if not isinstance(other, HTMLNode):
+            return NotImplemented
+
+        return self.tag == other.tag and self.value == other.value and self.children == other.children and self.props == other.props
+
     def __repr__(self):
         return f"tag = {self.tag}\nvalue = {self.value}\nchildren = {self.children}\nprops = {self.props}"
